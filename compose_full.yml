@@ -10,6 +10,8 @@ services:
       - net
     ports:
       - 35955:35955
+    volumes:
+      - /home/ssmike/work/neon-tests/integration/:/opt/neon-tests/integration/
 
   solana:
     image: neonlabsorg/evm_loader:latest
