@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+cd `dirname $0`
+
 cargo build --release # --target=x86_64-unknown-linux-musl
 cargo build-sbf --manifest-path program/Cargo.toml --features ci --dump
 
