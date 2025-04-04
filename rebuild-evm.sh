@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 
+export NEON_REVISION="develop"
 cd `dirname $0`
 
 cargo build --release # --target=x86_64-unknown-linux-musl
