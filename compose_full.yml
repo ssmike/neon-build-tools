@@ -35,9 +35,9 @@ services:
     volumes:
       - /home/ssmike/work/neon-evm/evm_loader/target:/target:ro
       - /home/ssmike/work/neon-evm/evm_loader/target/deploy/evm_loader.so:/opt/evm_loader.so:ro
-      - /home/ssmike/work/run-evm-tools.sh:/opt/neon-cli:ro
-      - /home/ssmike/work/run-evm-tools.sh:/opt/neon-api:ro
-      - /home/ssmike/work/run-evm-tools.sh:/opt/neon-rpc:ro
+      - /home/ssmike/work/neon-build-tools/run-evm-tools.sh:/opt/neon-cli:ro
+      - /home/ssmike/work/neon-build-tools/run-evm-tools.sh:/opt/neon-api:ro
+      - /home/ssmike/work/neon-build-tools/run-evm-tools.sh:/opt/neon-rpc:ro
     entrypoint: /opt/solana-run-neon.sh
     ports:
       - 8899:8899
@@ -62,9 +62,9 @@ services:
     volumes:
       - /home/ssmike/work/neon-evm/evm_loader/target:/target:ro
       - /home/ssmike/work/neon-evm/evm_loader/target/deploy/evm_loader.so:/opt/evm_loader.so:ro
-      - /home/ssmike/work/run-evm-tools.sh:/opt/neon-cli:ro
-      - /home/ssmike/work/run-evm-tools.sh:/opt/neon-api:ro
-      - /home/ssmike/work/run-evm-tools.sh:/opt/neon-rpc:ro
+      - /home/ssmike/work/neon-build-tools/run-evm-tools.sh:/opt/neon-cli:ro
+      - /home/ssmike/work/neon-build-tools/run-evm-tools.sh:/opt/neon-api:ro
+      - /home/ssmike/work/neon-build-tools/run-evm-tools.sh:/opt/neon-rpc:ro
     ports:
     - "8085"
     expose:
@@ -126,7 +126,7 @@ services:
     volumes:
       - /home/ssmike/work/neon-evm/evm_loader/target:/target:ro
       - /home/ssmike/work/neon-evm/evm_loader/target/deploy/evm_loader.so:/opt/evm_loader.so:ro
-      - /home/ssmike/work/run-evm-tools.sh:/spl/bin/neon-core-api:ro
+      - /home/ssmike/work/neon-build-tools/run-evm-tools.sh:/spl/bin/neon-core-api:ro
 
 
   postgres:
