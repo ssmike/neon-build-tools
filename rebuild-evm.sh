@@ -4,8 +4,9 @@ set -e
 export NEON_REVISION="develop"
 cd `dirname $0`
 
-cargo build --release # --target=x86_64-unknown-linux-musl
 cargo build-sbf --manifest-path program/Cargo.toml --features ci --dump
+cargo build --release # --target=x86_64-unknown-linux-musl
+cargo build
 
 libs=(
 	/usr/lib64/libudev.so.1
@@ -28,6 +29,8 @@ tools=(neon-cli neon-rpc neon-api)
 for tool in ${tools[@]}; do
     echo patching $tool
     patchelf target/release/$tool --set-interpreter /target/libs/ld-linux-x86-64.so.2
+    patchelf target/debug/$tool --set-interpreter /target/libs/ld-linux-x86-64.so.2
 done
 
 cp target/release/{neon-api,neon-core-api}
+cp target/debug/{neon-api,neon-core-api}
