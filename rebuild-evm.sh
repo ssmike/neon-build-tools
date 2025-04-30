@@ -5,8 +5,16 @@ export NEON_REVISION="develop"
 cd `dirname $0`
 
 cargo build-sbf --manifest-path program/Cargo.toml --features ci --dump
-cargo build --release # --target=x86_64-unknown-linux-musl
-cargo build
+
+cargo build \
+        --config 'patch.crates-io.ethnum.git="https://github.com/neonlabsorg/ethnum.git"'\
+        --config 'patch.crates-io.ethnum.branch="main"'\
+        --release
+# --target=x86_64-unknown-linux-musl
+
+cargo build \
+        --config 'patch.crates-io.ethnum.git="https://github.com/neonlabsorg/ethnum.git"'\
+        --config 'patch.crates-io.ethnum.branch="main"'
 
 libs=(
 	/usr/lib64/libudev.so.1
